@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Play & Rally Academy — Professional Badminton Coaching for Apartments | Bangalore</title>
+<meta name="description" content="Play & Rally Academy brings professional badminton coaching to your apartment community. Kids aged 6-14, all levels from beginner to competitive. Bangalore's premier residential court coaching program.">
+<meta name="keywords" content="badminton coaching Bangalore apartments, Play Rally Academy, PR Academy, badminton classes for kids Bangalore, residential badminton coaching, apartment sports coaching Bangalore">
+<meta property="og:title" content="Play & Rally Academy — Badminton Coaching at Your Doorstep">
+<meta property="og:description" content="Professional badminton coaching brought directly to your apartment community. Kids 6-14, all levels. Zero hassle for your RWA.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsOrganization",
+  "name": "Play & Rally Academy",
+  "alternateName": "PR Academy",
+  "description": "Professional badminton coaching for residential apartment communities in Bangalore. Programs for kids aged 6-14, all levels from beginner to competitive.",
+  "url": "https://pracademy.vercel.app",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressCountry": "IN" },
+  "founder": { "@type": "Person", "name": "Praneel Rajesh", "url": "https://praneel-athlete.vercel.app" },
+  "sport": "Badminton",
+  "areaServed": "Bangalore"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --white: #FFFFFF;
+    --lime: #C8F400;
+    --navy: #0F1923;
+    --grey: #666666;
+    --light: #F4F4F2;
+    --border: #E4E4E4;
+    --pad: clamp(20px, 5vw, 80px);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 var(--pad); height: 60px;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-mark {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px;
+    background: var(--navy); color: var(--lime); padding: 2px 10px; letter-spacing: 0.02em;
+  }
+  .nav-logo-name {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px;
+    color: var(--black); letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .nav-links-centre { display: flex; gap: 28px; list-style: none; }
+  .nav-links-centre a { font-size: 13px; font-weight: 500; color: var(--grey); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; white-space: nowrap; }
+  .nav-links-centre a:hover { color: var(--black); }
+  .nav-enquire {
+    background: var(--lime); color: var(--black); padding: 11px 20px;
+    font-size: 13px; font-weight: 800; text-decoration: none;
+    text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-enquire:hover { opacity: 0.85; }
+  @media (max-width: 768px) { .nav-links-centre { display: none; } .nav-logo-name { display: none; } }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+  .hero-left {
+    background: var(--navy);
+    padding: clamp(48px,8vw,100px) var(--pad);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+    color: var(--lime); text-transform: uppercase; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-tag::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--lime); }
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+    font-size: clamp(52px, 7vw, 96px); line-height: 0.92;
+    letter-spacing: -0.02em; color: var(--white); margin-bottom: 28px;
+  }
+  .hero-title span { color: var(--lime); }
+  .hero-sub {
+    font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.55);
+    max-width: 440px; margin-bottom: 44px;
+  }
+  .hero-sub strong { color: var(--white); font-weight: 600; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-lime {
+    background: var(--lime); color: var(--black);
+    padding: 14px 28px; font-size: 14px; font-weight: 800;
+    text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: opacity 0.2s;
+  }
+  .btn-lime:hover { opacity: 0.85; }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 14px 28px; font-size: 14px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.04em;
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--white); }
+
+  /* Hero right — photo + stats overlay */
+  .hero-right {
+    position: relative; background: var(--light); overflow: hidden;
+    min-height: 500px;
+  }
+  .hero-photo {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top; display: block;
+  }
+  .hero-photo-placeholder {
+    width: 100%; height: 100%; min-height: 500px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; color: var(--grey); text-align: center; padding: 40px;
+    border: 2px dashed var(--border);
+    /* REMOVE THIS entire style block once you add real photo */
+  }
+  .hero-stat-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(10,10,10,0.88); backdrop-filter: blur(8px);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    padding: 20px var(--pad);
+  }
+  .hero-stat { text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+  .hero-stat:last-child { border: none; }
+  .hero-stat-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 36px;
+    color: var(--lime); line-height: 1; margin-bottom: 4px;
+  }
+  .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--lime); padding: 18px var(--pad);
+    display: flex; align-items: center; justify-content: center; gap: clamp(24px, 4vw, 60px);
+    flex-wrap: wrap;
+  }
+  .trust-item { font-size: 13px; font-weight: 700; color: var(--black); letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+  .trust-dot { width: 5px; height: 5px; background: var(--black); border-radius: 50%; opacity: 0.3; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 80px var(--pad); border-bottom: 1px solid var(--border); }
+  .section-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--grey); text-transform: uppercase; margin-bottom: 12px; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(36px, 5vw, 64px); line-height: 1; letter-spacing: -0.02em; margin-bottom: 48px; }
+
+  /* ── COACH SECTION ── */
+  .coach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .coach-photo-wrap {
+    background: var(--light); overflow: hidden;
+    aspect-ratio: 4/5; position: relative;
+  }
+  .coach-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .coach-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; color: var(--grey); text-align: center; padding: 40px;
+    border: 2px dashed var(--border);
+    /* REMOVE once you add real photo */
+  }
+  .coach-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--lime); color: var(--black);
+    padding: 8px 16px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .coach-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(40px, 5vw, 64px); line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .coach-bio { font-size: 15px; color: var(--grey); line-height: 1.8; margin-bottom: 32px; }
+  .coach-bio strong { color: var(--black); font-weight: 600; }
+  .coach-credentials { display: flex; flex-direction: column; gap: 12px; }
+  .cred-item { display: flex; align-items: flex-start; gap: 12px; }
+  .cred-dot { width: 8px; height: 8px; background: var(--lime); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .cred-text { font-size: 14px; color: var(--grey); line-height: 1.5; }
+  .cred-text strong { color: var(--black); display: block; font-size: 14px; margin-bottom: 2px; }
+
+  /* ── PROGRAMS ── */
+  .programs-section { background: var(--navy); padding: 80px var(--pad); border-bottom: none; }
+  .programs-section .section-title { color: var(--white); }
+  .programs-section .section-tag { color: rgba(255,255,255,0.35); }
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  .program-card { background: #151F2A; padding: 40px 32px; display: flex; flex-direction: column; border-top: 3px solid transparent; transition: border-color 0.3s; }
+  .program-card:hover { border-color: var(--lime); }
+  .program-card.featured { background: var(--lime); }
+  .program-card.featured .program-name { color: var(--black); }
+  .program-card.featured .program-age { color: rgba(0,0,0,0.5); }
+  .program-card.featured .program-desc { color: rgba(0,0,0,0.6); }
+  .program-card.featured .program-includes li { color: rgba(0,0,0,0.65); }
+  .program-card.featured .program-includes li::before { color: var(--black); }
+  .program-card.featured:hover { border-color: var(--black); }
+  .program-icon { font-size: 28px; margin-bottom: 20px; }
+  .program-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; color: var(--white); margin-bottom: 6px; }
+  .program-age { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+  .program-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 24px; flex: 1; }
+  .program-includes { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
+  .program-includes li { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+  .program-includes li::before { content: '✓'; color: var(--lime); font-weight: 700; font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+  .program-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 32px; color: var(--white); margin-bottom: 4px; }
+  .program-card.featured .program-price { color: var(--black); }
+  .program-price-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 24px; }
+  .program-card.featured .program-price-note { color: rgba(0,0,0,0.4); }
+  .program-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 13px 20px; font-size: 13px; font-weight: 700;
+    text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em;
+    border: 2px solid rgba(255,255,255,0.2); color: var(--white);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .program-btn:hover { border-color: var(--lime); color: var(--lime); }
+  .program-card.featured .program-btn { border-color: var(--black); color: var(--black); }
+  .program-card.featured .program-btn:hover { background: var(--black); color: var(--lime); }
+
+  /* ── HOW IT WORKS ── */
+  .steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .step-card { background: var(--light); padding: 40px 28px; position: relative; transition: background 0.3s; }
+  .step-card:hover { background: #EAEAE8; }
+  .step-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 72px;
+    line-height: 1; color: var(--lime); margin-bottom: 16px;
+    -webkit-text-stroke: 2px var(--black);
+  }
+  .step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; margin-bottom: 10px; }
+  .step-desc { font-size: 13px; color: var(--grey); line-height: 1.7; }
+
+  /* ── FOR THE APARTMENT ── */
+  .apt-section { background: var(--black); padding: 80px var(--pad); }
+  .apt-section .section-title { color: var(--white); }
+  .apt-section .section-tag { color: rgba(255,255,255,0.35); }
+  .apt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 60px; }
+  .apt-card { background: #1A1A1A; padding: 36px 28px; border-top: 3px solid transparent; transition: border-color 0.3s; }
+  .apt-card:hover { border-color: var(--lime); }
+  .apt-icon { font-size: 28px; margin-bottom: 16px; }
+  .apt-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; color: var(--white); margin-bottom: 8px; }
+  .apt-desc { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+
+  /* Zero risk banner */
+  .zero-risk {
+    background: var(--lime); padding: 32px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+  .zero-risk-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(24px, 3vw, 36px); color: var(--black); letter-spacing: -0.01em; }
+  .zero-risk-sub { font-size: 14px; color: rgba(0,0,0,0.6); margin-top: 4px; }
+  .zero-risk-btn {
+    background: var(--black); color: var(--lime); padding: 14px 28px;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+    text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; flex-shrink: 0;
+  }
+  .zero-risk-btn:hover { opacity: 0.85; }
+
+  /* ── ACTION PHOTOS ── */
+  .photo-section { padding: 0; border-bottom: 1px solid var(--border); }
+  .photo-row { display: grid; grid-template-columns: 1fr 1fr 1fr; height: 340px; }
+  .photo-cell { overflow: hidden; position: relative; background: var(--light); }
+  .photo-cell img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
+  .photo-cell:hover img { transform: scale(1.04); }
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; color: var(--grey); font-size: 12px; text-align: center; padding: 20px;
+    border: 2px dashed var(--border);
+    /* REMOVE once you add photos */
+  }
+
+  /* ── ENQUIRY FORM ── */
+  .enquiry-section { padding: 80px var(--pad); border-bottom: 1px solid var(--border); }
+  .enquiry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .enquiry-left h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(36px,5vw,64px); line-height: 1; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .enquiry-left p { font-size: 15px; color: var(--grey); line-height: 1.75; margin-bottom: 32px; }
+  .enquiry-type { display: flex; gap: 2px; margin-bottom: 40px; }
+  .enquiry-type-btn {
+    flex: 1; padding: 14px; text-align: center; font-size: 13px; font-weight: 700;
+    cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 0.06em;
+    transition: background 0.2s, color 0.2s;
+  }
+  .enquiry-type-btn.active { background: var(--black); color: var(--lime); }
+  .enquiry-type-btn:not(.active) { background: var(--light); color: var(--grey); }
+
+  .enquiry-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--black); text-transform: uppercase; }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 13px 14px; border: 1.5px solid var(--border);
+    background: var(--white); font-family: 'Inter', sans-serif;
+    font-size: 14px; color: var(--black); outline: none;
+    transition: border-color 0.2s; border-radius: 0; appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--black); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%; padding: 16px; background: var(--black); color: var(--white);
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.06em; border: 2px solid var(--black); cursor: pointer;
+    text-transform: uppercase; transition: background 0.2s, color 0.2s;
+  }
+  .form-submit:hover { background: var(--lime); color: var(--black); border-color: var(--lime); }
+  .form-note { font-size: 12px; color: var(--grey); text-align: center; }
+  .form-success { display: none; text-align: center; padding: 48px 32px; background: var(--light); }
+  .form-success h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; margin-bottom: 10px; }
+  .form-success p { font-size: 14px; color: var(--grey); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 24px var(--pad); background: var(--navy);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--lime); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { min-height: 300px; }
+    .hero-stat-bar { grid-template-columns: repeat(3,1fr); padding: 16px var(--pad); }
+    .hero-stat-num { font-size: 26px; }
+    .coach-grid { grid-template-columns: 1fr; gap: 40px; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .steps-row { grid-template-columns: 1fr 1fr; }
+    .apt-grid { grid-template-columns: 1fr; }
+    .photo-row { grid-template-columns: 1fr 1fr; height: 260px; }
+    .photo-row .photo-cell:last-child { display: none; }
+    .enquiry-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; }
+    .zero-risk { flex-direction: column; align-items: flex-start; }
+    .trust-bar { gap: 16px; }
+    .trust-dot { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-mark">PRA</span>
+    <span class="nav-logo-name">Play & Rally Academy</span>
+  </a>
+  <ul class="nav-links-centre">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#apartment">For Apartments</a></li>
+    <li><a href="#enquiry">Enquire</a></li>
+  </ul>
+  <a href="#enquiry" class="nav-enquire">Get In Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Bangalore's Residential Badminton Academy</p>
+    <h1 class="hero-title">
+      PROFESSIONAL<br>
+      BADMINTON<br>
+      <span>AT YOUR</span><br>
+      DOORSTEP.
+    </h1>
+    <p class="hero-sub">
+      We bring <strong>professional badminton coaching</strong> directly to your apartment community court. No commute. No hassle. Just world-class coaching for your kids — right where you live.
+    </p>
+    <div class="hero-ctas">
+      <a href="#enquiry" class="btn-lime">Enquire Now →</a>
+      <a href="#apartment" class="btn-outline">For RWA Committees</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!--
+      ADD YOUR HERO PHOTO HERE:
+      Replace the placeholder div below with:
+      <img src="hero-action.jpg" alt="Play and Rally Academy badminton coaching" class="hero-photo">
+      Best: a dynamic badminton action shot — smash, jump, rally. Vertical crop.
+    -->
+    <div class="hero-photo-placeholder">
+      <span style="font-size:48px;">🏸</span>
+      <p>Add hero action photo here<br><small>Best: dynamic badminton shot, vertical crop</small></p>
+    </div>
+    <div class="hero-stat-bar">
+      <div class="hero-stat">
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Years Pro</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">TV</div>
+        <div class="hero-stat-label">Coverage</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">All</div>
+        <div class="hero-stat-label">Levels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span class="trust-item">Professional Badminton Background</span>
+  <span class="trust-dot"></span>
+  <span class="trust-item">TV Coverage</span>
+  <span class="trust-dot"></span>
+  <span class="trust-item">State & National Tournaments</span>
+  <span class="trust-dot"></span>
+  <span class="trust-item">Kids 6–14</span>
+  <span class="trust-dot"></span>
+  <span class="trust-item">Beginner to Competitive</span>
+</div>
+
+<!-- ABOUT COACH -->
+<section class="section" id="about">
+  <div class="coach-grid">
+    <div class="coach-photo-wrap reveal">
+      <!--
+        ADD YOUR COACH PHOTO HERE:
+        Replace the placeholder div below with:
+        <img src="coach-photo.jpg" alt="Praneel Rajesh — Head Coach Play and Rally Academy">
+        Best: professional looking shot, you holding a racket or on court. Portrait crop.
+      -->
+      <div class="coach-photo-placeholder">
+        <span style="font-size:48px;">📸</span>
+        <p>Add your coach photo here<br><small>Professional court shot, portrait crop</small></p>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="coach-badge">🏸 Head Coach</div>
+      <h2 class="coach-name">PRANEEL<br>RAJESH</h2>
+      <p class="coach-bio">
+        I've played badminton at a <strong>professional level with TV coverage</strong> — state and national tournaments across my career. Now I'm bringing that same standard of coaching directly to apartment communities across Bangalore.
+        <br><br>
+        Every session is structured, purposeful, and built around developing the fundamentals that actually make players better — not just keeping kids busy for an hour.
+      </p>
+      <div class="coach-credentials">
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>Professional badminton player</strong>State & national tournament experience with TV coverage</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>10+ years competitive sport</strong>Multi-discipline athlete — badminton, pickleball, triathlon, running</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>Structured coaching methodology</strong>Beginner foundations through to competitive match play</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>Based in Bangalore</strong>Available across residential communities city-wide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION PHOTOS -->
+<div class="photo-section">
+  <div class="photo-row">
+    <!--
+      ADD 3 BADMINTON ACTION PHOTOS:
+      Replace each placeholder div with:
+      <img src="action1.jpg" alt="Badminton coaching">
+      Best: smash shot, footwork drill, kids learning grip
+    -->
+    <div class="photo-cell">
+      <div class="photo-placeholder"><span style="font-size:32px;">🏸</span><p>Action shot 1<br><small>Smash / rally</small></p></div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-placeholder"><span style="font-size:32px;">🏃</span><p>Action shot 2<br><small>Footwork / movement</small></p></div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-placeholder"><span style="font-size:32px;">👦</span><p>Action shot 3<br><small>Kids coaching session</small></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="programs-section" id="programs">
+  <div class="reveal">
+    <p class="section-tag">Training Programs</p>
+    <h2 class="section-title" style="color:white;">Pick Your Program</h2>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card reveal d1">
+      <div class="program-icon">🌱</div>
+      <div class="program-name">Foundations</div>
+      <div class="program-age">Ages 6–14 · Beginner</div>
+      <div class="program-desc">Built for kids who have never held a racket. We start with grip, stance, basic strokes and court awareness — the building blocks that everything else is built on.</div>
+      <ul class="program-includes">
+        <li>2 sessions per week</li>
+        <li>Basic stroke technique</li>
+        <li>Footwork and movement</li>
+        <li>Court awareness and rules</li>
+        <li>Progress tracking monthly</li>
+      </ul>
+      <div class="program-price">Bespoke</div>
+      <div class="program-price-note">per student / month — contact for pricing</div>
+      <a href="#enquiry" class="program-btn">Enquire →</a>
+    </div>
+
+    <div class="program-card featured reveal d2">
+      <div class="program-icon">⚡</div>
+      <div class="program-name">Intermediate</div>
+      <div class="program-age">Ages 8–14 · Developing</div>
+      <div class="program-desc">For kids who know the basics and want to develop consistency, tactical play, and match-ready skills. The program where most students see the biggest improvement.</div>
+      <ul class="program-includes">
+        <li>3 sessions per week</li>
+        <li>Advanced stroke mechanics</li>
+        <li>Match play and tactics</li>
+        <li>Fitness and agility drills</li>
+        <li>Video feedback sessions</li>
+      </ul>
+      <div class="program-price">Bespoke</div>
+      <div class="program-price-note">per student / month — contact for pricing</div>
+      <a href="#enquiry" class="program-btn">Enquire →</a>
+    </div>
+
+    <div class="program-card reveal d3">
+      <div class="program-icon">🏆</div>
+      <div class="program-name">Competitive</div>
+      <div class="program-age">Ages 10–14 · Advanced</div>
+      <div class="program-desc">For serious players preparing for tournaments. Intensive training focused on competitive match strategy, physical conditioning, and performance under pressure.</div>
+      <ul class="program-includes">
+        <li>4+ sessions per week</li>
+        <li>Tournament preparation</li>
+        <li>Physical conditioning</li>
+        <li>Mental game coaching</li>
+        <li>1-on-1 sessions included</li>
+      </ul>
+      <div class="program-price">Bespoke</div>
+      <div class="program-price-note">per student / month — contact for pricing</div>
+      <a href="#enquiry" class="program-btn">Enquire →</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="reveal">
+    <p class="section-tag">The Process</p>
+    <h2 class="section-title">How It Works</h2>
+  </div>
+  <div class="steps-row">
+    <div class="step-card reveal d1">
+      <div class="step-num">01</div>
+      <div class="step-title">You Enquire</div>
+      <div class="step-desc">Fill in the form below — as a parent, a resident, or an RWA committee. Tell us which apartment and roughly how many kids would join.</div>
+    </div>
+    <div class="step-card reveal d2">
+      <div class="step-num">02</div>
+      <div class="step-title">We Assess</div>
+      <div class="step-desc">We visit the court, assess the space, and confirm the batch structure and schedule that works for your community.</div>
+    </div>
+    <div class="step-card reveal d3">
+      <div class="step-num">03</div>
+      <div class="step-title">We Set Up</div>
+      <div class="step-desc">Everything is handled — equipment, scheduling, communication with parents. The apartment simply provides court access.</div>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.4s;">
+      <div class="step-num">04</div>
+      <div class="step-title">Coaching Begins</div>
+      <div class="step-desc">Structured sessions start, parents get monthly progress updates, and the program runs seamlessly in your community.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR THE APARTMENT -->
+<section class="apt-section" id="apartment">
+  <div class="reveal">
+    <p class="section-tag">For RWA Committees & Facilities Managers</p>
+    <h2 class="section-title" style="color:white;">Why Apartments Choose Us</h2>
+  </div>
+  <div class="apt-grid">
+    <div class="apt-card reveal d1">
+      <div class="apt-icon">💰</div>
+      <div class="apt-title">Revenue from Your Court</div>
+      <div class="apt-desc">We pay a court access fee directly to your association. Your underused badminton court becomes a regular income source at zero effort to you.</div>
+    </div>
+    <div class="apt-card reveal d2">
+      <div class="apt-icon">🏆</div>
+      <div class="apt-title">Premium Amenity</div>
+      <div class="apt-desc">A structured professional coaching program is a genuine selling point for your apartment. Residents — especially families with children — value this.</div>
+    </div>
+    <div class="apt-card reveal d3">
+      <div class="apt-icon">✅</div>
+      <div class="apt-title">Zero Hassle</div>
+      <div class="apt-desc">We handle everything — equipment, scheduling, parent communication, and session management. You simply provide access and collect the fee.</div>
+    </div>
+    <div class="apt-card reveal d1">
+      <div class="apt-icon">🛡️</div>
+      <div class="apt-title">Professional & Credible</div>
+      <div class="apt-desc">State and national tournament experience with TV coverage. Parents and committees can trust they're bringing a serious professional into their community.</div>
+    </div>
+    <div class="apt-card reveal d2">
+      <div class="apt-icon">👨‍👩‍👧</div>
+      <div class="apt-title">Community Building</div>
+      <div class="apt-desc">A shared sporting activity brings residents together. Kids from different floors meeting on court builds exactly the kind of community feel apartments want.</div>
+    </div>
+    <div class="apt-card reveal d3">
+      <div class="apt-icon">📋</div>
+      <div class="apt-title">Transparent Agreement</div>
+      <div class="apt-desc">Clear written terms covering access fees, scheduling, liability, and conduct. Everything documented so both parties are protected.</div>
+    </div>
+  </div>
+
+  <!-- Zero risk banner -->
+  <div class="zero-risk reveal" style="margin-top:40px;">
+    <div>
+      <div class="zero-risk-text">Zero cost to your association.<br>Zero hassle to manage.</div>
+      <div class="zero-risk-sub">We pay you. You provide the court. Your residents get world-class coaching.</div>
+    </div>
+    <a href="#enquiry" class="zero-risk-btn">Talk to Us →</a>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section class="enquiry-section" id="enquiry">
+  <div class="enquiry-grid">
+    <div class="enquiry-left reveal">
+      <p class="section-tag">Get In Touch</p>
+      <h2>Ready to bring coaching to your community?</h2>
+      <p>Whether you're a parent keen to enrol your child, or an RWA committee looking to activate your court — fill in the form and we'll get back to you within 24 hours.</p>
+
+      <!-- Toggle: Parent or RWA -->
+      <div class="enquiry-type">
+        <button class="enquiry-type-btn active" onclick="switchType('parent', this)">I'm a Parent</button>
+        <button class="enquiry-type-btn" onclick="switchType('rwa', this)">I'm from an RWA</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;background:var(--lime);border-radius:50%;flex-shrink:0;"></div>
+          <span style="font-size:14px;color:var(--grey);">Response within 24 hours — personally from Praneel</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;background:var(--lime);border-radius:50%;flex-shrink:0;"></div>
+          <span style="font-size:14px;color:var(--grey);">Free court assessment for apartments</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;background:var(--lime);border-radius:50%;flex-shrink:0;"></div>
+          <span style="font-size:14px;color:var(--grey);">WhatsApp: <a href="https://wa.me/91XXXXXXXXXX" style="color:var(--black);font-weight:600;">+91 XXXXXXXXXX</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal d2">
+      <form class="enquiry-form" id="enquiryForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="name" placeholder="Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="rahul@gmail.com" required>
+        </div>
+        <div class="form-group" id="aptNameGroup">
+          <label>Apartment Name & Area</label>
+          <input type="text" name="apartment" placeholder="e.g. Prestige Lakeside, Whitefield">
+        </div>
+        <div class="form-group">
+          <label>Enquiry Type</label>
+          <select name="type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="parent-enrol">Parent — I want to enrol my child</option>
+            <option value="rwa-activate">RWA — I want to activate our court</option>
+            <option value="resident-interest">Resident — I want to gauge interest in my building</option>
+          </select>
+        </div>
+        <div class="form-group" id="programGroup">
+          <label>Program Interest</label>
+          <select name="program">
+            <option value="" disabled selected>Which program?</option>
+            <option value="foundations">Foundations — Beginner (Ages 6–14)</option>
+            <option value="intermediate">Intermediate — Developing (Ages 8–14)</option>
+            <option value="competitive">Competitive — Advanced (Ages 10–14)</option>
+            <option value="unsure">Not sure — help me decide</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Anything else?</label>
+          <textarea name="message" placeholder="Court dimensions, number of kids interested, preferred timing..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Enquiry →</button>
+        <p class="form-note">We'll get back to you on WhatsApp within 24 hours.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div style="font-size:48px;margin-bottom:16px;">🏸</div>
+        <h3>Enquiry received!</h3>
+        <p>Thanks for reaching out. Praneel will personally get back to you on WhatsApp within 24 hours.<br><br>
+        In the meantime, follow the journey on Instagram: <a href="https://instagram.com/praneel_226" target="_blank" style="color:var(--black);font-weight:600;">@praneel_226</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <p style="color:rgba(255,255,255,0.7);font-weight:600;margin-bottom:4px;">Play & Rally Academy</p>
+    <p>Professional Badminton Coaching · Bangalore, India</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://praneel-athlete.vercel.app" target="_blank">Athlete Page</a>
+    <a href="https://praneel-athlete.vercel.app/coaching" target="_blank">Fitness Coaching</a>
+    <a href="https://instagram.com/praneel_226" target="_blank">Instagram</a>
+    <a href="mailto:Connect.praneel@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Enquiry type toggle
+  function switchType(type, btn) {
+    document.querySelectorAll('.enquiry-type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const aptGroup = document.getElementById('aptNameGroup');
+    const programGroup = document.getElementById('programGroup');
+    if (type === 'rwa') {
+      aptGroup.style.display = 'flex';
+      programGroup.style.display = 'none';
+    } else {
+      aptGroup.style.display = 'flex';
+      programGroup.style.display = 'flex';
+    }
+  }
+
+  // Form submit
+  document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = Object.fromEntries(new FormData(this));
+
+    // ── SUPABASE ──
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+    const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+    // ── TELEGRAM ──
+    const TG_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
+    const TG_CHAT  = 'YOUR_TELEGRAM_CHAT_ID';
+
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/pra_enquiries`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ ...data, submitted_at: new Date().toISOString() })
+      });
+
+      const msg = `🏸 <b>NEW PRA ENQUIRY</b>\n\n👤 <b>${data.name}</b>\n📱 ${data.phone}\n📧 ${data.email}\n🏢 ${data.apartment || 'N/A'}\n📋 Type: ${data.type}\n🎯 Program: ${data.program || 'N/A'}\n\n💬 <i>${data.message || 'No additional message'}</i>`;
+
+      await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: TG_CHAT, text: msg, parse_mode: 'HTML' })
+      });
+
+      document.getElementById('enquiryForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+
+    } catch (err) {
+      btn.textContent = 'Something went wrong. Try again.';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
