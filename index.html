@@ -137,7 +137,6 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 12px; color: var(--grey); text-align: center; padding: 40px;
     border: 2px dashed var(--border);
-    /* REMOVE THIS entire style block once you add real photo */
   }
   .hero-stat-bar {
     position: absolute; bottom: 0; left: 0; right: 0;
@@ -179,7 +178,6 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 12px; color: var(--grey); text-align: center; padding: 40px;
     border: 2px dashed var(--border);
-    /* REMOVE once you add real photo */
   }
   .coach-badge {
     display: inline-flex; align-items: center; gap: 8px;
@@ -195,8 +193,6 @@
   .cred-dot { width: 8px; height: 8px; background: var(--lime); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
   .cred-text { font-size: 14px; color: var(--grey); line-height: 1.5; }
   .cred-text strong { color: var(--black); display: block; font-size: 14px; margin-bottom: 2px; }
-
-  /* programs removed */
 
   /* ── HOW IT WORKS ── */
   .steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
@@ -246,7 +242,6 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 8px; color: var(--grey); font-size: 12px; text-align: center; padding: 20px;
     border: 2px dashed var(--border);
-    /* REMOVE once you add photos */
   }
 
   /* ── ENQUIRY FORM ── */
@@ -254,7 +249,6 @@
   .enquiry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   .enquiry-left h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(36px,5vw,64px); line-height: 1; letter-spacing: -0.02em; margin-bottom: 20px; }
   .enquiry-left p { font-size: 15px; color: var(--grey); line-height: 1.75; margin-bottom: 32px; }
-
 
   .enquiry-form { display: flex; flex-direction: column; gap: 16px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -348,12 +342,6 @@
   </div>
 
   <div class="hero-right">
-    <!--
-      ADD YOUR HERO PHOTO HERE:
-      Replace the placeholder div below with:
-      <img src="hero-action.jpg" alt="Play and Rally Academy badminton coaching" class="hero-photo">
-      Best: a dynamic badminton action shot — smash, jump, rally. Vertical crop.
-    -->
     <div class="hero-photo-placeholder">
       <span style="font-size:48px;">🏸</span>
       <p>Add hero action photo here<br><small>Best: dynamic badminton shot, vertical crop</small></p>
@@ -453,12 +441,6 @@
 <!-- ACTION PHOTOS -->
 <div class="photo-section">
   <div class="photo-row">
-    <!--
-      ADD 3 BADMINTON ACTION PHOTOS:
-      Replace each placeholder div with:
-      <img src="action1.jpg" alt="Badminton coaching">
-      Best: smash shot, footwork drill, kids learning grip
-    -->
     <div class="photo-cell">
       <div class="photo-placeholder"><span style="font-size:32px;">🏸</span><p>Action shot 1<br><small>Smash / rally</small></p></div>
     </div>
@@ -470,8 +452,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- HOW IT WORKS -->
 <section class="section">
@@ -645,12 +625,6 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-   else {
-      aptGroup.style.display = 'flex';
-      programGroup.style.display = 'flex';
-    }
-  }
 
   // Form submit
   document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
